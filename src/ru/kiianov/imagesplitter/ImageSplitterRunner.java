@@ -19,11 +19,11 @@ public class ImageSplitterRunner {
         File[] files = imageFolder.listFiles();
 
 
-        ExecutorService executor = Executors.newFixedThreadPool(16); // you can adjust threads count for more performance
+        ExecutorService executor = Executors.newFixedThreadPool(8); // you can adjust threads count for more performance
 
         for (File file :
                 files) {
-            executor.submit(new ImageSplitter(file));
+            executor.execute(new ImageSplitter(file));
         }
         executor.shutdown();
     }

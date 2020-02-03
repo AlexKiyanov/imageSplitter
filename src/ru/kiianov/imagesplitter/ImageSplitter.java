@@ -16,9 +16,6 @@ class ImageSplitter extends Thread {
     @Override
     public void run() {
         try {
-            if (inputImage.getName().equalsIgnoreCase("result")) {
-                Thread.currentThread().destroy();
-            }
             String[] fileParts = {"left", "right"};
             int filePartsIterator = 0;
             BufferedImage source = ImageIO.read(inputImage);
